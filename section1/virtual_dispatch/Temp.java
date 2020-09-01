@@ -4,9 +4,16 @@ import java.io.FileOutputStream;
 // java Temp foo bar baz
 // args = { "foo", "bar", "baz" }
 public class Temp {
-    public void printThing(final boolean userWantsConsole,
-                           final String destinationFile,
-                           final int thingToPrint) {
+    // Issues:
+    // 1.) userWantsConsole and destinationFile keep getting repeated and passed around
+    // 2.) userWantsConsole and destinationFile are closely related
+    // 3.) userWantsConsole and destinationFile are somewhat conflicting (destinationFile doesn't
+    //     make sense if userWantsConsole == true)
+    // 4.) Repeated closing and opening of file hurts performance
+    // 5.) Overwriting file each time we write right now
+    public static void printThing(final boolean userWantsConsole,
+                                  final String destinationFile,
+                                  final int thingToPrint) {
         if (userWantsConsole) {
             System.out.println(42);
         } else {
@@ -17,9 +24,9 @@ public class Temp {
         }
     } // printThing
     
-    public int doComputation(final boolean userWantsConsole,
-                             final String destinationFile,
-                             final String[] args) {
+    public static int doComputation(final boolean userWantsConsole,
+                                    final String destinationFile,
+                                    final String[] args) {
         printThing(userWantsConsole, destinationFile, 42);
     } // doComputation
     
