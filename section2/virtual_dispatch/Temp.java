@@ -15,8 +15,9 @@ public class Temp {
     public static void main(final String[] args) {
         final boolean userWantsConsole = doesUserWantConsole(args);
         final String destinationFile = getDestinationFile(args);
-        final OutputDestination destination = new OutputDestination(userWantsConsole, destinationFile);
-
+        //final OutputDestination destination = new OutputDestination(userWantsConsole, destinationFile);
+        final OutputDestination destination = OutputDestination.makeDestination(userWantsConsole, destinationFile);
+        
         final int result = doComputation(destination, args);
 
         destination.writeThing(result);
