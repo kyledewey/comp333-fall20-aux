@@ -16,5 +16,11 @@ public class Nil implements ImmutableList {
     public boolean isEmpty() {
         return true;
     }
+
+    public ImmutableList addAmount(final int amount) {
+        // this: Nil
+        //return new Nil();
+        return this;
+    }
 } // Nil
     

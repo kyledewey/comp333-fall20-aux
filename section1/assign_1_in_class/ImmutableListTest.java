@@ -249,4 +249,33 @@ public class ImmutableListTest {
         // new Cons(1, new Cons(2, new Nil()))
         assertFalse(new Cons(1, new Nil()).isEmpty());
     }
+
+    // [1, 2, 3].addAmount(5) -> [6, 7, 8]
+    @Test
+    public void addAmountNonEmpty() {
+        // final ImmutableList empty = new Nil();
+        // final ImmutableList three = new Cons(3, empty);
+        // final ImmutableList twoThree = new Cons(2, three);
+        
+        final ImmutableList input =
+            new Cons(1, new Cons(2, new Cons(3, new Nil())));
+        final ImmutableList output =
+            new Cons(6, new Cons(7, new Cons(8, new Nil())));
+        
+        assertEquals(output, input.addAmount(5));
+        // Also valid thanks to subtyping.
+        // final Cons input =
+        //     new Cons(1, new Cons(2, new Cons(3, new Nil())));
+        // final Cons output =
+        //     new Cons(6, new Cons(7, new Cons(8, new Nil())));
+    }
+
+    // [].addAmount(5) -> []
+    @Test
+    public void addAmountEmpty() {
+        final ImmutableList input = new Nil();
+        final ImmutableList output = new Nil();
+
+        assertEquals(output, input.addAmount(5));
+    }
 } // ImmutableListTest

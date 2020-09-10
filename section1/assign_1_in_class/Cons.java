@@ -29,4 +29,43 @@ public class Cons implements ImmutableList {
     public boolean isEmpty() {
         return false;
     }
+
+    // obj.foo()
+    //
+    // public class Object {
+    //   public void foo() {
+    //     // this: obj
+    //   }
+    //
+    // foo(obj)
+    
+    
+    // [1, 2, 3].addAmount(5) -> [6, 7, 8]
+    // this: Cons(1, Cons(2, Cons(3, Nil)))
+    // head: 1
+    // amount: 5
+    // tail: Cons(2, Cons(3, Nil))
+    // desired return value: Cons(6, Cons(7, Cons(8, Nil)))
+    public ImmutableList addAmount(final int amount) {
+        // this: Cons (which is an ImmutableList)
+        // head: int
+        // amount: int
+        // tail: ImmutableList
+
+        final ImmutableList recursiveCall = tail.addAmount(amount);
+        // recursiveCall: Cons(7, new Cons(8, Nil))
+
+        final int newHead = head + amount;
+        // newHead: 6
+
+        final ImmutableList result =
+            new Cons(newHead, recursiveCall);
+        // result: Cons(6, Cons(7, Cons(8, Nil)))
+        
+        return result;
+    }
+
+    // public ImmutableList addAmount(final int amount) {
+    //     return new Cons(head + amount, tail.addAmount(amount));
+    // }
 } // Cons
