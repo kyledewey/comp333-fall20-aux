@@ -36,9 +36,9 @@ public class Cons implements ImmutableList {
         return false;
     }
 
-    public ImmutableList addAmount(final int amount) {
-        return new Cons(head + amount, tail.addAmount(amount));
-    }
+    // public ImmutableList addAmount(final int amount) {
+    //     return new Cons(head + amount, tail.addAmount(amount));
+    // }
     
     // [1, 2, 3]
     // 1 -> 2 -> 3 -> Nil

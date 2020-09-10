@@ -249,18 +249,42 @@ public class ImmutableListTest {
         assertFalse(list.isEmpty());
     }
 
+    // [].addAmount(3) -> []
     @Test
     public void addAmountEmpty() {
         // assertEquals(expected, received)
         assertEquals(new Nil(), new Nil().addAmount(3));
     }
 
+    // public static void takesCons(final Cons c) {}
+
+    // public static void takesMouse(final Mouse m) {}
+    
+    // [1, 2, 3].addAmount(5) -> [6, 7, 8]
     @Test
     public void addAmountNonEmpty() {
         final ImmutableList input =
             new Cons(1, new Cons(2, new Cons(3, new Nil())));
         final ImmutableList output =
             new Cons(6, new Cons(7, new Cons(8, new Nil())));
+
+        // final Cons input =
+        //     new Cons(1, new Cons(2, new Cons(3, new Nil())));
+        // final Cons output =
+        //     new Cons(6, new Cons(7, new Cons(8, new Nil())));
+
         assertEquals(output, input.addAmount(5));
+
+        // final Cons someCons = new Cons(1, new Nil());
+        // takesCons(someCons);
+
+        // final ImmutableList someOtherCons = new Cons(2, new Nil());
+        // takesCons((Cons)someOtherCons);
+
+        // final Mouse someMouse = new Mouse();
+        // takesMouse(someMouse);
+
+        // final Animal someOtherMouse = new Mouse();
+        // takesMouse(someOtherMouse); // won't compile
     }
 } // ImmutableListTest
