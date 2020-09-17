@@ -17,6 +17,45 @@ public class Cons implements ImmutableList {
             return false;
         }
     } // equals
+
+    // tail.tail
+    // tail: ImmutableList
+    // tail: ((Cons)tail).tail
+    //
+    // tail instanceof Cons && ((Cons)tail).tail
+    // 
+    // if (tail instanceof Cons) {
+    //   ...
+    // } ...
+    //
+    // public static void doSomething(ImmutableList element) {
+    //   if (element instanceof Cons) {
+    //     // Cons stuff here
+    //   } else if (element instanceof Nil) {
+    //     // Nil stuff here
+    //   }
+    // }
+    //
+    // Calling it (above): doSomething(list)
+    //
+    // public interface ImmutableList {
+    //   public void doSomething();
+    // }
+    //
+    // public class Cons implements ImmutableList {
+    //   public void doSomething() {
+    //     // Cons stuff here
+    //   }
+    // }
+    //
+    // public class Nil implements ImmutableList {
+    //   public void doSomething() {
+    //     // Nil stuff here
+    //   }
+    // }
+    //
+    // Calling it (above): list.doSomething()
+    //
     
     public String toString() {
         return "Cons(" + head + ", " + tail.toString() + ")";
