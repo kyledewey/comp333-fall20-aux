@@ -54,6 +54,7 @@ public class Cons implements ImmutableList {
 
         final ImmutableList restResult = tail.addAmount(amount);
         final int newAmount = head + amount;
-        return new Cons(newAmount, restResult);
+        final ImmutableList result = new Cons(newAmount, restResult);
+        return result;
     }
 } // Cons
