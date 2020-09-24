@@ -1,3 +1,5 @@
+function returnsNothing() {}
+
 function foo() {
     return 1 + 2;
 }
@@ -18,4 +20,38 @@ function baz() {
     // }
     
     return b;
+}
+
+function printAllLessThanFive(arr) {
+    let index;
+    for (index = 0; index < arr.length; index++) {
+        if (arr[index] < 5) {
+            // System.out.println(arr[index]);
+            console.log(arr[index]);
+        }
+    }
+}
+
+function printAllNotEqualThisValue(arr, value) {
+    let index;
+    for (index = 0; index < arr.length; index++) {
+        // != has the same issue as ==
+        // !== behaves like ===
+        if (arr[index] !== value) {
+            // System.out.println(arr[index]);
+            console.log(arr[index]);
+        }
+    }
+}
+
+function printAllGreaterThan(arr, value) {
+    let index;
+    for (index = 0; index < arr.length; index++) {
+        // != has the same issue as ==
+        // !== behaves like ===
+        if (arr[index] > value) {
+            // System.out.println(arr[index]);
+            console.log(arr[index]);
+        }
+    }
 }
