@@ -45,9 +45,13 @@ function printAllLessThanFive(arr) {
 //     }
 // }
 
+// function innerFunction(foobar, thisString) {
+//     return foobar !== thisString;
+// }
+
 function printEverythingThatIsNotThisString(arr, thisString) {
-    let f = function (foobar) {
-        return foobar !== thisString;
+    let f = function (element) {
+        return element !== thisString;
     };
     printAllMatchingCondition(arr, f);
     // let index;
@@ -76,3 +80,9 @@ function printAllGreaterThanValue(arr, value) {
 
 // global variable
 //f = "blah";
+
+function returnFunctionThatAdds(first) {
+    return function (second) {
+        return first + second;
+    }
+}

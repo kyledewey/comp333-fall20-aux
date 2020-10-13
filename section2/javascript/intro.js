@@ -35,13 +35,27 @@ function printAllMatchingCondition(arr, condition) {
     }
 }
 
-function printAllLessThanFive(arr) {
-    let foobar = (function (element) {
-        return element < 5;
-    });
-    
-    printAllMatchingCondition(arr, foobar);
+// Basically the same thing
+// isLessThanFive = function (element) {
+//     return element < 5;
+// };
+
+function isLessThanFive(element) {
+    return element < 5;
 }
+
+function printAllLessThanFive(arr) {
+    // let foobar = (function (element) {
+    //     return element < 5;
+    // });
+    
+    printAllMatchingCondition(arr, isLessThanFive);
+}
+
+// Not the same function as below!
+// function helper(e, value) {
+//     return e !== value;
+// }
 
 function printAllNotEqualThisValue(arr, value) {
     let f = function (e) {
@@ -93,3 +107,9 @@ function printAllGreaterThan(arr, value) {
 //         }
 //     }
 // }
+
+function returnsAddNumber(first) {
+    return function (second) {
+        return first + second;
+    }
+}
