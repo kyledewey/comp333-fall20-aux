@@ -86,3 +86,9 @@ function returnFunctionThatAdds(first) {
         return first + second;
     }
 }
+
+let f = returnFunctionThatAdds(3);
+console.log(f(2));
+
+// abc(123)
+// call abc as a function, pass 123 as its argument
