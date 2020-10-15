@@ -43,5 +43,5 @@ function appendAllAsStrings(arr) {
 }
 
 function appendAllAsStrings2(arr) {
-    return add.reduce((accum, e) => accum + e.toString(), "");
+    return arr.reduce((accum, e) => accum + e.toString(), "");
 }
