@@ -21,7 +21,7 @@ function findSum(arr) {
 }
 
 function findProduct(arr) {
-    // arr.reduce((product, e) => product + e, 1)
+    // arr.reduce((product, e) => product * e, 1)
     let product = 1;
     let index;
 
@@ -52,3 +52,12 @@ function reduce(arr, operation, initialValue) {
     }
     return accumulator;
 }
+
+function returnAddFunction(firstParam) {
+    return function (secondParam) {
+        return firstParam + secondParam;
+    }
+}
+
+var addFive = returnAddFunction(5);
+
