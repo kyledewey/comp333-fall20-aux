@@ -1,4 +1,7 @@
 // how to use: add(1, 2)
+// add = function(x, y) {
+//     return x + y;
+// }
 function add(x, y) {
     return x + y;
 }
@@ -17,7 +20,10 @@ function test() {
 // how to use: new MyObject(3)
 function MyObject(myField) {
     this.myField = myField;
-    this.addMyField = function (param) {
-        return param + this.myField;
-    };
 }
+
+MyObject.prototype.addMyField = function (param) {
+    return param + this.myField;
+};
+// NOT __proto__
+
