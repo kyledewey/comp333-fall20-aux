@@ -19,10 +19,12 @@ function test() {
 
 // how to use: new MyObject(3)
 function MyObject(myField) {
+    // semantics of constructor call: `this` is bound to a new, empty object
     this.myField = myField;
 }
 
 MyObject.prototype.addMyField = function (param) {
+    // semantics of method call: `this` is bound to the object it was called on
     return param + this.myField;
 };
 // NOT __proto__
