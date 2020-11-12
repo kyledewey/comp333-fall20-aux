@@ -100,3 +100,86 @@ if 1 > 0 {
 } else {
     print("baz");
 }
+
+/*
+print(callsFunc(f: { a in 1 + a }, i: 5))
+
+// Swift: { a in 1 + a }
+// JavaScript: a => 1 + a
+// JavaScript: function (a) { return 1 + a; }
+
+// anonymous function: { (a, b) in a + b }
+let myFunction: (Int, Int) -> Int = { (a, b) in a + b }
+print(myFunction(3, 4))
+
+// result: Bool
+let result = true && false
+print(result);
+if result {
+    print("hello");
+} else {
+    print("goodbye");
+}*/
+
+func callsAnother(myFunction: () -> Int) -> Int {
+  return myFunction()
+}
+
+//                             { 1 + 3 }
+//print(callsAnother(myFunction: { () in 1 + 3 }))
+
+// JavaScript:
+// function callsAnother(f) {
+//   return f();
+// }
+// callsAnother(() => 1 + 3)
+// callsAnother(function () { return 1 + 3; })
+
+let myTuple: (Int, String, Double, Double) = (1, "foo", 3.4, 2.2)
+print(myTuple)
+
+// Void in Swift is Unit in functional languages
+// side-effecting function
+func returnsNothing() -> Void {
+    print("returns nothing");
+}
+
+let temp = returnsNothing();
+print(temp);
+
+func indirectIf(_ myBool: Bool, ifTrue: () -> Void, ifFalse: () -> Void) -> Void {
+    //return myBool ? ifTrue() : ifFalse();
+    if myBool {
+        ifTrue();
+    } else {
+        ifFalse();
+    }
+}
+
+//print(indirectIf(true, ifTrue: { 1 + 2 }, ifFalse: { 3 + 4 }))
+
+// algebraic data types - in functional languages
+
+let b1: Bool = true;
+let b2: Bool = false;
+
+// one type (Bool), two constructors of that type - true and false
+// look at booleans with if/else
+// algebraic data types: generalize what a boolean (or boolean-like type)
+//
+// type color_in_traffic_light = { red, yellow, green }
+// let value: color_in_traffic_light = red;
+// switch (value) {
+//   case red:
+//     ...
+//   case yellow:
+//     ...
+//   case green:
+//     ...
+// }
+// switch (boolean) {
+//   case true:
+//     ...
+//   case false:
+//     ...
+// }
