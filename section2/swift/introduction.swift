@@ -158,28 +158,3 @@ func indirectIf(_ myBool: Bool, ifTrue: () -> Void, ifFalse: () -> Void) -> Void
 
 //print(indirectIf(true, ifTrue: { 1 + 2 }, ifFalse: { 3 + 4 }))
 
-// algebraic data types - in functional languages
-
-let b1: Bool = true;
-let b2: Bool = false;
-
-// one type (Bool), two constructors of that type - true and false
-// look at booleans with if/else
-// algebraic data types: generalize what a boolean (or boolean-like type)
-//
-// type color_in_traffic_light = { red, yellow, green }
-// let value: color_in_traffic_light = red;
-// switch (value) {
-//   case red:
-//     ...
-//   case yellow:
-//     ...
-//   case green:
-//     ...
-// }
-// switch (boolean) {
-//   case true:
-//     ...
-//   case false:
-//     ...
-// }
