@@ -93,3 +93,91 @@ switch (myVariable) {
     case .green:
         print("it's green");
 }
+
+enum ContainsOther {
+    case isABoolean(Bool)
+    case isAnInteger(Int)
+}
+
+enum UhOh {
+    case isABoolean(Bool)
+}
+
+//let value = ContainsOther.isABoolean(true);
+var value: ContainsOther = ContainsOther.isAnInteger(8);
+//value = ContainsOther.isABoolean(true);
+
+// switch performs pattern matching
+// switch performs exhaustivity checking
+switch value {
+    case .isABoolean(let b):
+        print(b)
+    case .isAnInteger(7):
+        print("lucky seven")
+    case .isAnInteger(_):
+        print("it's some other integer")
+    case _:
+        print("catch-all")
+}
+
+let x = 0;
+
+switch x {
+    case 0:
+        print("it's zero")
+    case 1:
+        print("it's one")
+    case _:
+        print("it's something else")
+}
+
+let y: Int = 7;
+let z: Int? = nil;
+
+// Java
+// Object obj = ...; // obj could be null
+
+// Concerns #A
+// Concerns #B
+// Class MyClass is used in both #A and #B -> MyClass will get methods specific to #A and #B
+// Anti-patterns: God class (common issue if everything is virtual dispatch)
+
+indirect enum IntTree {
+    case leaf(Int)
+    case internalNode(IntTree, Int, IntTree)
+}
+
+var myTree: IntTree = IntTree.leaf(7);
+myTree = IntTree.internalNode(IntTree.leaf(1), 2, IntTree.leaf(3));
+
+func getSum(tree: IntTree) -> Int {
+    switch tree {
+        case .leaf(let value):
+            return value
+        case .internalNode(let leftTree, let value, let rightTree):
+            return getSum(tree: leftTree) + value + getSum(tree: rightTree)
+    }
+}
+
+print(getSum(tree: myTree))
+
+// Java
+// public interface IntTree {}
+// public class Leaf implements IntTree {
+//   public final int value;
+//   public Leaf(final int value) { this.value = value; }
+// }
+// public class InternalNode implements IntTree {
+//   public final IntTree left;
+//   public final int value;
+//   public final IntTree right;
+//   public InternalNode(final IntTree left, final int value, final IntTree right) {
+//     this.left = left; this.value = value; this.right = right;
+//   }
+// }
+
+indirect enum MyList
+{
+	case Cons(Int, MyList)
+	case Nil
+}
