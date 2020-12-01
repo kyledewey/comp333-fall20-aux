@@ -70,3 +70,20 @@ let optionalInt2: Int? = 7;
 
 // Swift
 // let obj: Object? = ...;
+
+MyList.Cons(1,MyList.Cons(2,MyList.Cons(3,MyList.empty))
+
+func sum(tree: IntTree) -> Int {
+    switch tree {
+        case .leaf(let value):
+            return value
+        case .internalNode(let leftTree, let value, let rightTree):
+            return sum(tree: leftTree) + value + sum(tree: rightTree)
+    }
+}
+
+print(sum(tree: IntTree.leaf(42)))
+//    2
+//  /   \
+// 1     3
+print(sum(tree: IntTree.internalNode(IntTree.leaf(1), 2, IntTree.leaf(3))))
