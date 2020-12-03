@@ -6,12 +6,32 @@ indirect enum MyList<A> {
   case Nil
 }
 
+extension MyList {
+    func length() -> Int {
+        switch self {
+        case .Nil:
+            return 0
+        case .Cons(_, let b):
+            return 1 + length(list: b)
+        }
+    }
+}
+        
 func length<A>(list: MyList<A>) -> Int {
     switch list {
         case .Nil:
             return 0
         case .Cons(_, let b):
             return 1 + length(list: b)
+    }
+}
+
+func map<A, B>(list: MyList<A>, f: (A) -> B) -> List<B> {
+    switch list {
+    case .Cons(head, tail):
+        return List.Cons(f(head), map(list: tail, f: f))
+    case .Nil:
+        return List.Nil
     }
 }
 
