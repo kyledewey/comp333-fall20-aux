@@ -48,3 +48,26 @@ print(length(list: list1))
 print(somethingElse(list: list2))
 
 let tup: (Int, String, Bool, Double, Int) = (1, "foo", true, 3.14, 42)
+
+extension MyList {
+    func length() -> Int {
+        // `self` is to Swift as `this` is to Java
+        switch self {
+            case .Nil:
+                return 0
+            case .Cons(_, let tail):
+                return tail.length() + 1
+        }
+    }
+}
+
+print(length(list: MyList.Cons(1, MyList.Cons(2, MyList.Nil))))
+let list = MyList.Cons(1, MyList.Cons(2, MyList.Nil))
+print(list.length())
+
+extension Bool {
+    func and(_ other: Bool) -> Bool { return self && other }
+}
+
+print(true.and(false))
+l
